@@ -1,9 +1,18 @@
 import type { NextConfig } from "next";
+import { PHASE_DEVELOPMENT_SERVER } from "next/constants";
 
-const nextConfig: NextConfig = {
-  turbopack: {
-    root: process.cwd(),
-  },
-};
+export default function nextConfig(phase: string): NextConfig {
+  const isDevelopment = phase === PHASE_DEVELOPMENT_SERVER;
 
-export default nextConfig;
+  return {
+    output: "export",
+    basePath: isDevelopment ? "" : "/scam-guard",
+    trailingSlash: true,
+    images: {
+      unoptimized: true,
+    },
+    turbopack: {
+      root: process.cwd(),
+    },
+  };
+}
