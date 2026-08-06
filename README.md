@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Scam Guard
 
-## Getting Started
+怪しいメッセージやURLに含まれる、詐欺でよく使われる危険な特徴を確認する判断支援Webサービスです。結果は「低」「注意」「高」の3段階で示しますが、詐欺かどうかや安全性を断定するものではありません。
 
-First, run the development server:
+## 起動方法
+
+Node.js 20.9以降とnpmを用意し、次のコマンドを実行してください。
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ブラウザで `http://localhost:3000` を開きます。外部APIやAPIキーは不要です。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 実装済み機能
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- 怪しい文章・URLの入力、サンプル入力、入力内容の削除
+- ルールベースによる危険な表現の検出
+  - 急がせる表現
+  - 送金・支払い要求
+  - 電子マネー・ギフトカード・暗号資産の要求
+  - 公的機関・金融機関を名乗る表現
+  - パスワード・暗証番号・認証コードの要求
+  - 周囲への相談を止める表現
+  - 不自然なURL、短縮URL、暗号化されていないHTTP URL
+- 注意レベル、検出理由、検出語句、推奨行動、入力内容の表示
+- スマートフォン対応とキーボード操作への配慮
+- 判定ロジックの単体テスト
 
-## Learn More
+## 確認コマンド
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run lint
+npm run build
+npm test
+```
