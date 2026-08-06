@@ -4,17 +4,6 @@
 
 [▶ アプリを見る](https://roki0i.github.io/scam-guard/)
 
-## 起動方法
-
-Node.js 20.9以降とnpmを用意し、次のコマンドを実行してください。
-
-```bash
-npm install
-npm run dev
-```
-
-ブラウザで `http://localhost:3000` を開きます。外部APIやAPIキーは不要です。
-
 ## 実装済み機能
 
 - 怪しい文章・URLの入力、サンプル入力、入力内容の削除
@@ -29,11 +18,3 @@ npm run dev
 - 注意レベル、検出理由、検出語句、推奨行動、入力内容の表示
 - スマートフォン対応とキーボード操作への配慮
 - 判定ロジックの単体テスト
-
-## 確認コマンド
-
-```bash
-npm run lint
-npm run build
-npm test
-```
